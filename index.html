@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Recognition Demo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Recognition Demo</h1>
+      <form class="form">
+        <input type="text" name="key" placeholder="Enter S3 object key">
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="output">
+        <h2>Detected Labels</h2>
+        <ul></ul>
+      </div>
+    </div>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1040.0.min.js"></script>
+    <script>
+      // Set AWS credentials directly (Replace with your own credentials)
+      AWS.config.credentials = new AWS.Credentials('AKIA4UOLKOU4Z7UBQYUA', 'oVps6aGYCokslpG3/ekGMpiUhJdAWTBJlVXgV9W2');
+
+      // Set the AWS region
+      AWS.config.region = 'ap-south-1';
+
+      const form = document.querySelector('form');
+      const outputList = document.querySelector('.output ul');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const key = event.target.elements.key.value;
+
+        // Construct the AWS Lambda function ARN
+        const lambdaFunctionArn = 'arn:aws:lambda:ap-south-1:868546671929:function:image_description_function';
+
+        // Construct the AWS SDK object
+        const lambda = new AWS.Lambda();
+
+        // Parameters for invoking the Lambda function
+        const params = {
+          FunctionName: lambdaFunctionArn,
+          Payload: JSON.stringify({ key })
+        };
+
+        // Invoke the Lambda function
+        lambda.invoke(params, function(err, data) {
+          if (err) {
+            console.error('Error invoking Lambda function:', err);
+            outputList.innerHTML = `<li>Error: ${err.message}</li>`;
+          } else {
+            console.log('Lambda function invoked successfully:', data);
+            const labels = JSON.parse(data.Payload);
+            outputList.innerHTML = '';
+            for (const label of labels) {
+              const li = document.createElement('li');
+              li.textContent = `${label.name} (${label.confidence.toFixed(2)})`;
+              outputList.appendChild(li);
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://wallpapers.com/images/high/4k-nature-vivid-landscape-6ki7pp0ul2gfta76.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  color: #333;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 15px 30px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  outline: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.output {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 30px;
+}
+
+.output ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.output li {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
